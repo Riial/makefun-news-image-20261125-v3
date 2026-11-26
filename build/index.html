@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WORLD IN ONE FRAME — NOVEMBER 25, 2026</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#F7F4EC; }
+.page { width:1024px; height:1024px; padding:12px 14px 10px; background:#F7F4EC; color:#11141B;
+  font-family:'Liberation Sans','DejaVu Sans',Arial,sans-serif; display:flex; flex-direction:column; }
+.serif { font-family:'Liberation Serif',Georgia,'DejaVu Serif',serif; }
+.mono { font-family:'Liberation Mono','DejaVu Sans Mono',monospace; }
+b, strong { font-weight:bold; }
+
+/* ---------- masthead ---------- */
+.mast { display:flex; justify-content:space-between; height:150px; border-bottom:3px solid #11141B; padding-bottom:8px; }
+.mast-left { width:662px; display:flex; flex-direction:column; justify-content:center; }
+.kicker { font-size:10px; letter-spacing:3px; font-weight:bold; color:#C83E37; }
+h1 { font-size:27px; line-height:1.1; letter-spacing:0.2px; margin:5px 0 6px; }
+.mast-sub { font-size:11px; letter-spacing:1.2px; font-weight:bold; border-top:1px solid #11141B; padding-top:5px; }
+.mast-meta { font-size:9px; color:#4A4436; margin-top:4px; letter-spacing:0.5px; }
+.mapbox { width:300px; height:138px; position:relative; border:1px solid #A79D81; background:#F7F4EC; flex:none; }
+.mapbox img { width:100%; height:100%; display:block; }
+.pin { position:absolute; width:5px; height:5px; border-radius:50%; border:1px solid #fff;
+  transform:translate(-50%,-50%); box-shadow:0 0 0 0.5px rgba(0,0,0,0.35); }
+.maplabel { position:absolute; font-size:6.5px; font-weight:bold; letter-spacing:0.5px; color:#4A4436;
+  transform:translate(-50%,-50%); white-space:nowrap;
+  text-shadow:0 0 2px #F7F4EC, 0 0 2px #F7F4EC, 0 0 2px #F7F4EC; }
+.mapcap { position:absolute; right:3px; bottom:2px; font-size:6px; letter-spacing:0.5px; color:#6B6350; font-weight:bold; }
+
+/* ---------- badges & tags ---------- */
+.badge { font-size:8px; font-weight:bold; letter-spacing:0.7px; }
+.tag { font-size:7.5px; font-weight:bold; letter-spacing:0.6px; color:#fff; padding:1px 4px; border-radius:2px; }
+.tag.confirmed { background:#15803d; } .tag.reported { background:#b45309; } .tag.claim { background:#C83E37; }
+
+/* ---------- leads ---------- */
+.leads { display:flex; gap:10px; height:252px; margin-top:8px; }
+.lead1 { width:556px; flex:none; border:1px solid #11141B; border-top:3px solid #C83E37; padding:8px 10px 7px;
+  display:flex; flex-direction:column; }
+.lead1 h2 { font-size:19px; line-height:1.12; margin:4px 0 5px; }
+.lead1 .sum { font-size:10.5px; line-height:1.38; color:#23262C; }
+.kdb { margin-top:auto; border-top:1px solid #11141B; padding-top:6px; }
+.kdb-title { font-size:8px; letter-spacing:1.6px; font-weight:bold; color:#C83E37; }
+.metrics { display:flex; gap:10px; margin-top:4px; }
+.metric { flex:1; }
+.metric .v { font-size:18px; font-weight:bold; line-height:1; }
+.metric .l { font-size:7.5px; color:#4A4436; margin-top:2px; line-height:1.25; }
+.minibar { margin-top:7px; }
+.minibar .cap { font-size:7.5px; letter-spacing:0.8px; font-weight:bold; color:#4A4436; margin-bottom:2px; }
+.phases { display:flex; gap:3px; margin-top:6px; }
+.phase { flex:1; background:#7f1d1d; color:#F7F4EC; font-size:7.5px; font-weight:bold; letter-spacing:0.6px;
+  text-align:center; padding:3px 0; }
+.leads-right { flex:1; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:10px; }
+.lead-sm { border:1px solid #11141B; padding:4px 8px 3px; display:flex; flex-direction:column; overflow:hidden; }
+.lead-sm.tight { padding:1px 8px 1px; }
+.lead-sm.tight .chart { padding-top:0; }
+.lead-sm h3 { font-size:12.5px; line-height:1.15; margin:2px 0 2px; }
+.lead-sm .sum { font-size:9px; line-height:1.28; color:#23262C; }
+.lead-sm .badge { font-size:7.5px; letter-spacing:0.5px; }
+.lead-sm .chart { margin-top:auto; padding-top:2px; }
+.chart-cap { font-size:7px; letter-spacing:0.8px; font-weight:bold; color:#4A4436; }
+
+/* ---------- grid #06-#35 ---------- */
+.grid { display:flex; gap:12px; margin-top:8px; flex:1; min-height:0; }
+.gcol { flex:1; display:flex; flex-direction:column; justify-content:space-between; min-width:0; }
+.region h4 { font-size:10px; letter-spacing:1px; border-bottom:2px solid #11141B; padding-bottom:2px; margin-bottom:1px; }
+.region h4 .n { color:#C83E37; }
+.item { padding:4px 0 5px; border-bottom:1px solid #E2DDD2; }
+.item:last-child { border-bottom:none; }
+.item .hl { font-size:10.5px; line-height:1.22; font-weight:bold; }
+.item .ft { font-size:9px; line-height:1.32; color:#2A2D33; margin-top:1px; }
+.item .sec { font-size:7.5px; font-weight:bold; letter-spacing:0.5px; }
+.item .num { font-weight:bold; }
+
+/* ---------- stat strip / pulse / footer ---------- */
+.stats { display:flex; border-top:2px solid #11141B; border-bottom:1px solid #11141B; margin-top:8px; padding:5px 0 4px; }
+.stat { flex:1; text-align:center; border-left:1px solid #D8D2C0; }
+.stat:first-child { border-left:none; }
+.stat .v { font-size:19px; font-weight:bold; color:#C83E37; line-height:1; }
+.stat .l { font-size:7px; letter-spacing:0.6px; color:#4A4436; margin-top:2px; line-height:1.25; }
+.pulse { background:#141821; color:#F7F4EC; font-size:9.5px; padding:5px 8px; margin-top:6px; letter-spacing:0.3px; }
+.pulse b { color:#F5A623; }
+.foot { margin-top:6px; font-size:8.5px; line-height:1.45; color:#2A2D33; }
+.foot .datecheck b { color:#C83E37; }
+.foot .legend { margin-top:2px; }
+.foot .attrib { margin-top:2px; color:#4A4436; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ================= MASTHEAD ================= -->
+  <div class="mast">
+    <div class="mast-left">
+      <div class="kicker">WEDNESDAY &nbsp;•&nbsp; FINAL EDITION</div>
+      <h1 class="serif">WORLD IN ONE FRAME — NOVEMBER 25, 2026</h1>
+      <div class="mast-sub">35 VERIFIED STORIES &nbsp;•&nbsp; 9 REGIONS &nbsp;•&nbsp; 15 SECTORS</div>
+      <div class="mast-meta">Every story below happened or was first reported on Wednesday, 25 November 2026.
+      Tags: <b>CONFIRMED</b> official source &nbsp;•&nbsp; <b>REPORTED</b> reputable reporting &nbsp;•&nbsp;
+      <b>CLAIM</b> one side&rsquo;s claim, unverified.</div>
+    </div>
+    <div class="mapbox" id="mapbox">
+      <img src="map.svg" alt="World map, 35 story locations">
+      <div class="mapcap">35 PINS &bull; ONE PER STORY</div>
+    </div>
+  </div>
+
+  <!-- ================= LEADS #01–#05 ================= -->
+  <div class="leads">
+    <div class="lead1">
+      <div class="badge"><span style="color:#7f1d1d">&#9632; DEFENCE</span> &nbsp;MIDDLE EAST
+        &nbsp;<span class="tag claim">CLAIM</span></div>
+      <h2 class="serif">#01 &nbsp;Houthis strike Saudi refinery, Riyadh district</h2>
+      <div class="sum">Houthi forces said they hit the kingdom&rsquo;s largest refinery at Ras Tanura and
+      Riyadh&rsquo;s financial district in three phases; the Saudi-led coalition said air defences
+      intercepted four drones. NASA imagery showed smoke over ~600 sq km around the refinery.</div>
+      <div class="kdb">
+        <div class="kdb-title">KEY DATA BREAKDOWN</div>
+        <div class="metrics">
+          <div class="metric"><div class="v mono" style="color:#7f1d1d">550,000</div>
+            <div class="l">BARRELS/DAY &mdash; RAS TANURA CAPACITY, KINGDOM&rsquo;S LARGEST</div></div>
+          <div class="metric"><div class="v mono" style="color:#7f1d1d">4</div>
+            <div class="l">DRONES INTERCEPTED OVER RAS TANURA, COALITION SAYS</div></div>
+          <div class="metric"><div class="v mono" style="color:#7f1d1d">~600 km&sup2;</div>
+            <div class="l">SMOKE PLUME AREA IN NASA SATELLITE IMAGERY</div></div>
+        </div>
+        <div class="minibar">
+          <div class="cap">RAS TANURA CAPACITY vs 1,000,000 B/D SCALE</div>
+          <svg width="532" height="26" viewBox="0 0 532 26">
+            <rect x="0" y="4" width="532" height="9" fill="#E7E0CE"/>
+            <rect x="0" y="4" width="293" height="9" fill="#7f1d1d"/>
+            <line x1="0" y1="2" x2="0" y2="15" stroke="#11141B" stroke-width="1"/>
+            <line x1="133" y1="2" x2="133" y2="15" stroke="#11141B" stroke-width="1"/>
+            <line x1="266" y1="2" x2="266" y2="15" stroke="#11141B" stroke-width="1"/>
+            <line x1="399" y1="2" x2="399" y2="15" stroke="#11141B" stroke-width="1"/>
+            <line x1="532" y1="2" x2="532" y2="15" stroke="#11141B" stroke-width="1"/>
+            <text x="0" y="24" font-size="7" fill="#4A4436" font-family="monospace">0</text>
+            <text x="122" y="24" font-size="7" fill="#4A4436" font-family="monospace">250k</text>
+            <text x="255" y="24" font-size="7" fill="#4A4436" font-family="monospace">500k</text>
+            <text x="388" y="24" font-size="7" fill="#4A4436" font-family="monospace">750k</text>
+            <text x="512" y="24" font-size="7" fill="#4A4436" font-family="monospace">1M</text>
+          </svg>
+        </div>
+        <div class="phases"><div class="phase">PHASE 1</div><div class="phase">PHASE 2</div><div class="phase">PHASE 3</div></div>
+      </div>
+    </div>
+
+    <div class="leads-right">
+      <div class="lead-sm">
+        <div class="badge"><span style="color:#0c4a6e">&#9632; SCIENCE &amp; SPACE</span> &nbsp;E. ASIA
+          &nbsp;<span class="tag confirmed">CONFIRMED</span></div>
+        <h3 class="serif">#02 &nbsp;Shenzhou-24 carries first foreign astronaut</h3>
+        <div class="sum">Docked at Tiangong with Muhammad Zeeshan Ali, 40 &mdash; the first
+        Pakistani in orbit. <b>4 crew &bull; 90+ experiments &bull; 5&ndash;10 days.</b></div>
+        <div class="chart">
+          <div class="chart-cap">LAUNCH &rarr; DOCKING, WEDNESDAY (GMT)</div>
+          <svg width="196" height="24" viewBox="0 0 196 24">
+            <line x1="8" y1="10" x2="188" y2="10" stroke="#11141B" stroke-width="1.5"/>
+            <circle cx="14" cy="10" r="4" fill="#0c4a6e"/><circle cx="172" cy="10" r="4" fill="#0c4a6e"/>
+            <text x="2" y="23" font-size="7.5" fill="#11141B" font-family="monospace" text-anchor="start">00:18 LAUNCH</text>
+            <text x="194" y="23" font-size="7.5" fill="#11141B" font-family="monospace" text-anchor="end">03:56 DOCK</text>
+            <text x="93" y="7" font-size="7.5" fill="#0c4a6e" font-family="monospace" text-anchor="middle" font-weight="bold">3h 38m</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="lead-sm">
+        <div class="badge"><span style="color:#c2410c">&#9632; ENERGY</span> &nbsp;EAST EUROPE
+          &nbsp;<span class="tag reported">REPORTED</span></div>
+        <h3 class="serif">#03 &nbsp;Ukrainian drones hit two Russian refineries</h3>
+        <div class="sum">Overnight strikes hit Syzran and Kuibyshev in Samara; one killed in the city.
+        Fires seen at both refineries.</div>
+        <div class="chart">
+          <div class="chart-cap">DRONES DOWNED / INTERCEPTED</div>
+          <svg width="196" height="34" viewBox="0 0 196 34">
+            <rect x="52" y="1" width="57" height="7" fill="#c2410c"/>
+            <text x="48" y="8" font-size="7.5" fill="#11141B" font-family="monospace" text-anchor="end">145 SAMARA</text>
+            <text x="113" y="8" font-size="7.5" fill="#11141B" font-family="monospace">145</text>
+            <rect x="52" y="12" width="120" height="7" fill="#7f1d1d"/>
+            <text x="48" y="19" font-size="7.5" fill="#11141B" font-family="monospace" text-anchor="end">305 RUSSIA</text>
+            <text x="176" y="19" font-size="7.5" fill="#11141B" font-family="monospace">305</text>
+            <rect x="52" y="23" width="20" height="7" fill="#b45309"/>
+            <text x="48" y="30" font-size="7.5" fill="#11141B" font-family="monospace" text-anchor="end">50+ ROSTOV</text>
+            <text x="76" y="30" font-size="7.5" fill="#11141B" font-family="monospace">50+</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="lead-sm tight">
+        <div class="badge"><span style="color:#1d4ed8">&#9632; TRADE</span> &nbsp;NORTH AMERICA
+          &nbsp;<span class="tag confirmed">CONFIRMED</span></div>
+        <h3 class="serif">#04 &nbsp;US proposes tariffs on 14 trade partners</h3>
+        <div class="sum">Washington unveiled new duties after an eight-month Section 301 probe into excess
+        industrial capacity. <b>14 partners &bull; China hit hardest.</b></div>
+        <div class="chart">
+          <div class="chart-cap">CHINA TARIFF: EXISTING ~25% + PROPOSED 20% = 45%</div>
+          <svg width="196" height="26" viewBox="0 0 196 26">
+            <rect x="0" y="2" width="109" height="10" fill="#1d4ed8"/>
+            <rect x="109" y="2" width="87" height="10" fill="#C83E37"/>
+            <text x="54" y="10" font-size="7.5" fill="#fff" font-family="monospace" text-anchor="middle">~25% NOW</text>
+            <text x="152" y="10" font-size="7.5" fill="#fff" font-family="monospace" text-anchor="middle">+20%</text>
+            <text x="0" y="23" font-size="7" fill="#4A4436" font-family="monospace">0%</text>
+            <text x="192" y="23" font-size="7" fill="#4A4436" font-family="monospace" text-anchor="end">45%</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="lead-sm tight">
+        <div class="badge"><span style="color:#0f766e">&#9632; MARKETS</span> &nbsp;EAST ASIA
+          &nbsp;<span class="tag confirmed">CONFIRMED</span></div>
+        <h3 class="serif">#05 &nbsp;Asian stocks plunge on AI doubts</h3>
+        <div class="sum">Kospi fell 6.16% and Nikkei 2.78% as AI-spending doubts and tariff threats hit
+        chipmakers. <b>Samsung &minus;9.9%.</b></div>
+        <div class="chart">
+          <div class="chart-cap">INDEX MOVES, WEDNESDAY (%)</div>
+          <svg width="196" height="34" viewBox="0 0 196 34">
+            <line x1="10" y1="6" x2="186" y2="6" stroke="#11141B" stroke-width="1"/>
+            <polyline points="18,28 60,18 102,23 144,10 178,15" fill="none" stroke="#C83E37" stroke-width="1.75"/>
+            <circle cx="18" cy="28" r="2.5" fill="#C83E37"/><circle cx="60" cy="18" r="2.5" fill="#C83E37"/>
+            <circle cx="102" cy="23" r="2.5" fill="#C83E37"/><circle cx="144" cy="10" r="2.5" fill="#C83E37"/>
+            <circle cx="178" cy="15" r="2.5" fill="#C83E37"/>
+            <text x="2" y="33" font-size="6.5" fill="#11141B" font-family="monospace" text-anchor="start">KOSPI &minus;6.16</text>
+            <text x="102" y="33" font-size="6.5" fill="#11141B" font-family="monospace" text-anchor="middle">TAIEX &minus;4.8</text>
+            <text x="194" y="33" font-size="6.5" fill="#11141B" font-family="monospace" text-anchor="end">SHANG. &minus;2.03</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= GRID #06–#35 ================= -->
+  <div class="grid">
+    <div class="gcol">
+      <div class="region">
+        <h4>NORTH AMERICA &nbsp;<span class="n">&bull; 8</span></h4>
+        <div class="item"><div class="hl serif"><span style="color:#be185d">#06</span> Army detonates 4.5 tonnes of lead azide</div>
+          <div class="ft"><span class="sec" style="color:#be185d">HEALTH</span> &mdash; Controlled Iowa blast; toxic plume could travel <b class="num" style="color:#be185d">100 miles</b>.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#2e7d32">#07</span> US inflation: PCE up 3.8% in year</div>
+          <div class="ft"><span class="sec" style="color:#2e7d32">ECONOMY</span> &mdash; <b class="num" style="color:#2e7d32">Core 3.3%</b>; Fed&rsquo;s last read before 9 December meeting.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#b45309">#08</span> Anthropic shares slide below IPO price</div>
+          <div class="ft"><span class="sec" style="color:#b45309">TECH &amp; AI</span> &mdash; <b class="num" style="color:#b45309">$77.41</b> premarket, &minus;5.2%; market cap near $1 trillion.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#0c4a6e">#09</span> First deep-sea-only salp discovered</div>
+          <div class="ft"><span class="sec" style="color:#0c4a6e">SCIENCE &amp; SPACE</span> &mdash; Glass salp found <b class="num" style="color:#0c4a6e">280&ndash;2,200 m</b> deep off Monterey Bay.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#0c4a6e">#10</span> Most precise neutrino measurement to date</div>
+          <div class="ft"><span class="sec" style="color:#0c4a6e">SCIENCE &amp; SPACE</span> &mdash; COHERENT detectors at Oak Ridge; three of four cleared <b class="num" style="color:#0c4a6e">5-sigma</b>.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#15803d">#11</span> Great Lakes hit record late-November warmth</div>
+          <div class="ft"><span class="sec" style="color:#15803d">CLIMATE</span> &mdash; Lake Erie <b class="num" style="color:#15803d">54.6&deg;F</b>, 6&deg;+ above average; $7bn fishery at risk.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#2e7d32">#12</span> Deere profit falls as farm sales slide</div>
+          <div class="ft"><span class="sec" style="color:#2e7d32">ECONOMY</span> &mdash; Q4 net income <b class="num" style="color:#2e7d32">$1.051bn</b>; large-equipment sales down 15%.</div></div>
+      </div>
+      <div class="region">
+        <h4>SOUTHEAST ASIA &amp; OCEANIA &nbsp;<span class="n">&bull; 3</span></h4>
+        <div class="item"><div class="hl serif"><span style="color:#1f4e79">#33</span> Australia signs security treaty with Solomons</div>
+          <div class="ft"><span class="sec" style="color:#1f4e79">GEOPOLITICS</span> &mdash; <b class="num" style="color:#1f4e79">$740m</b> over 10 years; no foreign military base allowed.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#a16207">#34</span> Three bodies found in flooded Indonesian mine</div>
+          <div class="ft"><span class="sec" style="color:#a16207">SOCIETY</span> &mdash; <b class="num" style="color:#a16207">26 still trapped</b> in unauthorised Bogor gold shaft.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#2e7d32">#35</span> Australian inflation jumps to 4.9% in October</div>
+          <div class="ft"><span class="sec" style="color:#2e7d32">ECONOMY</span> &mdash; Core <b class="num" style="color:#2e7d32">3.8%</b>, fastest in two years; December hike in play.</div></div>
+      </div>
+    </div>
+
+    <div class="gcol">
+      <div class="region">
+        <h4>WESTERN EUROPE &nbsp;<span class="n">&bull; 7</span></h4>
+        <div class="item"><div class="hl serif"><span style="color:#44403c">#15</span> Two charged over prince&rsquo;s home break-in</div>
+          <div class="ft"><span class="sec" style="color:#44403c">LAW &amp; POLICY</span> &mdash; Anmer Hall burglary on 23 Nov; <b class="num" style="color:#44403c">six cufflinks</b> and clock taken.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#7f1d1d">#16</span> RAF shelters jets nightly over drone threat</div>
+          <div class="ft"><span class="sec" style="color:#7f1d1d">DEFENCE</span> &mdash; Aircraft moved to hangars; Sky News report unsourced.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#44403c">#17</span> Puigdemont to return to Spain 12 December</div>
+          <div class="ft"><span class="sec" style="color:#44403c">LAW &amp; POLICY</span> &mdash; Exiled Catalan leader ends <b class="num" style="color:#44403c">decade away</b> after amnesty ruling.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#a16207">#18</span> Canary Islands log record migrant arrivals</div>
+          <div class="ft"><span class="sec" style="color:#a16207">SOCIETY</span> &mdash; <b class="num" style="color:#a16207">2,100+</b> landed in 24 hours; year total now 28,103.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#2e7d32">#19</span> EasyJet profit plunges 89% before takeover</div>
+          <div class="ft"><span class="sec" style="color:#2e7d32">ECONOMY</span> &mdash; Pre-tax profit <b class="num" style="color:#2e7d32">&pound;71m</b>; Apollo&rsquo;s &pound;5.7bn deal due Q1 2027.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#6d28d9">#20</span> Nick Cave, India win Venice visitors&rsquo; awards</div>
+          <div class="ft"><span class="sec" style="color:#6d28d9">CULTURE &amp; MEDIA</span> &mdash; Best participant and best pavilion in <b class="num" style="color:#6d28d9">people&rsquo;s-choice</b> vote.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#15803d">#21</span> Pope laments failure of COP31 talks</div>
+          <div class="ft"><span class="sec" style="color:#15803d">CLIMATE</span> &mdash; Leo urges firm action to protect Earth after <b class="num" style="color:#15803d">Antalya collapse</b>.</div></div>
+      </div>
+      <div class="region">
+        <h4>LATIN AMERICA &amp; CARIBBEAN &nbsp;<span class="n">&bull; 2</span></h4>
+        <div class="item"><div class="hl serif"><span style="color:#44403c">#13</span> Colombia frees 20 supermarket hostages</div>
+          <div class="ft"><span class="sec" style="color:#44403c">LAW &amp; POLICY</span> &mdash; Forces storm Cartagena store; <b class="num" style="color:#44403c">one captor killed</b>, four held.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#1d4ed8">#14</span> US proposes 10% duty on Brazilian aircraft</div>
+          <div class="ft"><span class="sec" style="color:#1d4ed8">TRADE</span> &mdash; Move targets Embraer; Brazil sought a <b class="num" style="color:#1d4ed8">WTO panel</b> Tuesday.</div></div>
+      </div>
+      <div class="region">
+        <h4>EASTERN EUROPE &amp; EURASIA &nbsp;<span class="n">&bull; 2</span></h4>
+        <div class="item"><div class="hl serif"><span style="color:#a16207">#22</span> Bulgaria intercepts first migrant boat in months</div>
+          <div class="ft"><span class="sec" style="color:#a16207">SOCIETY</span> &mdash; <b class="num" style="color:#a16207">35 people</b> aboard near Sinemorets; children among them.</div></div>
+      </div>
+    </div>
+
+    <div class="gcol">
+      <div class="region">
+        <h4>MIDDLE EAST &nbsp;<span class="n">&bull; 5</span></h4>
+        <div class="item"><div class="hl serif"><span style="color:#7f1d1d">#25</span> Coalition bombs Hodeidah port in Yemen</div>
+          <div class="ft"><span class="sec" style="color:#7f1d1d">DEFENCE</span> &mdash; <b class="num" style="color:#7f1d1d">Six strikes</b> after evacuation warning; Saada, Amran also hit.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#57534e">#26</span> Two tankers hit mines in Strait of Hormuz</div>
+          <div class="ft"><span class="sec" style="color:#57534e">INFRASTRUCTURE</span> &mdash; Ships exploded and burned; <b class="num" style="color:#57534e">IRGC claim unverified</b>.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#1f4e79">#27</span> Israeli strike kills Hamas colonel in Gaza</div>
+          <div class="ft"><span class="sec" style="color:#1f4e79">GEOPOLITICS</span> &mdash; Colonel, wife and two daughters killed; <b class="num" style="color:#1f4e79">4 dead</b>, 6 wounded.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#44403c">#28</span> Jordan sentences man to death over officer killing</div>
+          <div class="ft"><span class="sec" style="color:#44403c">LAW &amp; POLICY</span> &mdash; Court rules on <b class="num" style="color:#44403c">5 Nov</b> Amman attack; appeal automatic.</div></div>
+      </div>
+      <div class="region">
+        <h4>EAST ASIA &nbsp;<span class="n">&bull; 4</span></h4>
+        <div class="item"><div class="hl serif"><span style="color:#1f4e79">#29</span> North Korea expels Swiss diplomat, closes office</div>
+          <div class="ft"><span class="sec" style="color:#1f4e79">GEOPOLITICS</span> &mdash; Envoy given <b class="num" style="color:#1f4e79">48 hours</b> to leave after sanctions row.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#be185d">#30</span> Kyoto builds zinc sensors in living brains</div>
+          <div class="ft"><span class="sec" style="color:#be185d">HEALTH</span> &mdash; Fluorescent sensors track synaptic zinc in mice, <b class="num" style="color:#be185d">PNAS</b> reports.</div></div>
+      </div>
+      <div class="region">
+        <h4>SOUTH ASIA &nbsp;<span class="n">&bull; 2</span></h4>
+        <div class="item"><div class="hl serif"><span style="color:#2e7d32">#31</span> Bangladesh lifts garment wage 36% to 17,000 taka</div>
+          <div class="ft"><span class="sec" style="color:#2e7d32">ECONOMY</span> &mdash; <b class="num" style="color:#2e7d32">Four million workers</b>; smallest rise in over a decade.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#0f766e">#32</span> Sensex jumps 1,502 points; rupee eight-month high</div>
+          <div class="ft"><span class="sec" style="color:#0f766e">MARKETS</span> &mdash; Index at <b class="num" style="color:#0f766e">83,938</b>; foreign inflows and cheaper oil lift mood.</div></div>
+      </div>
+      <div class="region">
+        <h4>AFRICA &nbsp;<span class="n">&bull; 2</span></h4>
+        <div class="item"><div class="hl serif"><span style="color:#059669">#23</span> South Africa crush Bangladesh, sweep series 2&ndash;0</div>
+          <div class="ft"><span class="sec" style="color:#059669">SPORT</span> &mdash; Won by innings and <b class="num" style="color:#059669">219 runs</b>; Mulder 7/31, century too.</div></div>
+        <div class="item"><div class="hl serif"><span style="color:#44403c">#24</span> Nigeria seizes $227m meth, arrests five Mexicans</div>
+          <div class="ft"><span class="sec" style="color:#44403c">LAW &amp; POLICY</span> &mdash; Haul found in Enugu; <b class="num" style="color:#44403c">trafficking route</b> fears grow.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= STAT STRIP ================= -->
+  <div class="stats">
+    <div class="stat"><div class="v mono">550,000</div><div class="l">BARRELS/DAY &mdash; RAS TANURA REFINERY CAPACITY</div></div>
+    <div class="stat"><div class="v mono">145</div><div class="l">DRONES DOWNED OVER SAMARA OVERNIGHT</div></div>
+    <div class="stat"><div class="v mono">2,100+</div><div class="l">MIGRANTS REACH CANARY ISLANDS IN 24 HOURS</div></div>
+    <div class="stat"><div class="v mono">$227m</div><div class="l">METH SEIZED IN NIGERIA; 5 MEXICANS HELD</div></div>
+    <div class="stat"><div class="v mono">4.9%</div><div class="l">AUSTRALIA OCTOBER CPI, UP FROM 4.3%</div></div>
+  </div>
+
+  <!-- ================= GLOBAL PULSE ================= -->
+  <div class="pulse mono"><b>GLOBAL PULSE</b> &nbsp;&nbsp;KOSPI <b>&minus;6.16%</b> &nbsp;&bull;&nbsp; NIKKEI <b>&minus;2.78%</b> &nbsp;&bull;&nbsp; SENSEX <b>+1.82%</b> &nbsp;&bull;&nbsp; US PCE <b>3.8%</b> / CORE <b>3.3%</b> &nbsp;&bull;&nbsp; BRENT <b>~$90</b> &nbsp;&bull;&nbsp; ANTHROPIC <b>$77.41 &minus;5.2%</b></div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="foot">
+    <div class="datecheck"><b>DATE CHECK &mdash; EXCLUDED, NOT 25 NOV:</b> Hamas chief Naeem Abu Nahel killed (24 Nov) &middot; RSF Blue Nile strikes (24 Nov night) &middot; COP31 collapse (22 Nov) &middot; Dow first close above 50,000 (24 Nov) &middot; Nvidia &minus;5.9% (24 Nov) &middot; Champions League matchday 5 (24 Nov).</div>
+    <div class="legend">SECTORS:
+      <span style="color:#1f4e79">&#9632;</span> GEOPOLITICS &nbsp;
+      <span style="color:#2e7d32">&#9632;</span> ECONOMY &nbsp;
+      <span style="color:#0f766e">&#9632;</span> MARKETS &nbsp;
+      <span style="color:#b45309">&#9632;</span> TECH &amp; AI &nbsp;
+      <span style="color:#0c4a6e">&#9632;</span> SCIENCE &amp; SPACE &nbsp;
+      <span style="color:#15803d">&#9632;</span> CLIMATE &nbsp;
+      <span style="color:#c2410c">&#9632;</span> ENERGY &nbsp;
+      <span style="color:#be185d">&#9632;</span> HEALTH &nbsp;
+      <span style="color:#7f1d1d">&#9632;</span> DEFENCE &nbsp;
+      <span style="color:#44403c">&#9632;</span> LAW &amp; POLICY &nbsp;
+      <span style="color:#1d4ed8">&#9632;</span> TRADE &nbsp;
+      <span style="color:#57534e">&#9632;</span> INFRASTRUCTURE &nbsp;
+      <span style="color:#a16207">&#9632;</span> SOCIETY &nbsp;
+      <span style="color:#6d28d9">&#9632;</span> CULTURE &amp; MEDIA &nbsp;
+      <span style="color:#059669">&#9632;</span> SPORT</div>
+    <div class="attrib">SOURCES: REUTERS &middot; AP &middot; AFP &middot; BEA &middot; ABS &middot; PMO AUSTRALIA &middot; ESPNCRICINFO &nbsp;&bull;&nbsp; TAGS: <b>CONFIRMED</b> official source &middot; <b>REPORTED</b> reputable reporting &middot; <b>CLAIM</b> one side&rsquo;s claim, unverified &nbsp;&bull;&nbsp; Region counts include lead stories #01&ndash;#05. All stories happened or were first reported Wednesday, 25 November 2026.</div>
+  </div>
+
+</div>
+<script>
+// Story pins: [lon, lat, sector colour]. Positions are true story locations;
+// a few pins are nudged a few degrees where several stories share one city,
+// so every one of the 35 stays visible. Equirectangular projection, same as map.svg.
+var PINS = [
+  [50.0,26.6,'#7f1d1d'],[100.3,40.9,'#0c4a6e'],[48.5,53.2,'#c2410c'],[-77.0,38.9,'#1d4ed8'],
+  [127.0,37.6,'#0f766e'],[-91.3,40.8,'#be185d'],[-73.0,41.5,'#2e7d32'],[-122.4,37.8,'#b45309'],
+  [-117.5,34.5,'#0c4a6e'],[-84.3,36.0,'#0c4a6e'],[-81.0,42.2,'#15803d'],[-90.5,41.5,'#2e7d32'],
+  [-75.5,10.4,'#44403c'],[-45.9,-23.2,'#1d4ed8'],[3.5,54.5,'#44403c'],[-0.1,51.5,'#7f1d1d'],
+  [6.5,49.0,'#44403c'],[-16.6,28.3,'#a16207'],[-3.5,50.0,'#2e7d32'],[14.5,47.0,'#6d28d9'],
+  [10.0,40.0,'#15803d'],[27.9,42.1,'#a16207'],[28.2,-25.9,'#059669'],[7.5,6.5,'#44403c'],
+  [42.95,14.8,'#7f1d1d'],[56.3,26.5,'#57534e'],[34.45,31.5,'#1f4e79'],[38.5,33.5,'#44403c'],
+  [125.75,39.0,'#1f4e79'],[135.8,35.0,'#be185d'],[90.4,23.8,'#2e7d32'],[72.9,19.1,'#0f766e'],
+  [149.1,-35.3,'#1f4e79'],[106.8,-6.6,'#a16207'],[154.0,-32.0,'#2e7d32']
+];
+var LABELS = [
+  [-105,52,'NORTH AMERICA'],[-68,-8,'LATIN AMERICA'],[-12,47,'W. EUROPE'],
+  [52,66,'E. EUROPE & EURASIA'],[65,5,'MIDDLE EAST'],[16,2,'AFRICA'],
+  [80,26,'SOUTH ASIA'],[108,42,'EAST ASIA'],[128,-16,'SE ASIA & OCEANIA']
+];
+var box = document.getElementById('mapbox');
+PINS.forEach(function(p){
+  var d = document.createElement('div');
+  d.className = 'pin';
+  d.style.left = ((p[0]+180)/360*100) + '%';
+  d.style.top = ((90-p[1])/180*100) + '%';
+  d.style.background = p[2];
+  box.appendChild(d);
+});
+LABELS.forEach(function(l){
+  var s = document.createElement('div');
+  s.className = 'maplabel';
+  s.style.left = ((l[0]+180)/360*100) + '%';
+  s.style.top = ((90-l[1])/180*100) + '%';
+  s.textContent = l[2];
+  box.appendChild(s);
+});
+</script>
+</body>
+</html>
